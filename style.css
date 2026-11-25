@@ -829,4 +829,32 @@ label[for*="menu"] {
     -webkit-tap-highlight-color: rgba(67, 77, 232, 0.15);
   }
 }
+/* Phone/Tablet par tap ke baad stuck state rokne ke liye */
+.btn,
+.hero-buttons a,
+.hero-buttons button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
+}
 
+/* Sirf tap karte waqt temporary press feedback */
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Hover sirf un devices par chale jahan real hover (mouse/laptop) hota hai */
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover,
+  .btn-contact:hover {
+    background-color: #ffffff;
+    color: #434de8;
+    border-color: #434de8;
+  }
+
+  .btn-outline:hover {
+    background-color: #434de8;
+    color: #ffffff;
+    border-color: #434de8;
+  }
+}
