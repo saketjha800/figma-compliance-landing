@@ -82,8 +82,11 @@ ul {
   border-radius: 6px;
   font-weight: 600;
   font-size: 14px;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
   cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
 }
 
 .btn-sm {
@@ -91,7 +94,7 @@ ul {
   font-size: 13px;
 }
 
-/* Default Blue Buttons (Contact Us, Get Started) -> Hover par White/Outlined Blue */
+/* Default Blue Buttons (Contact Us, Get Started) */
 .btn-primary,
 .btn-contact {
   background-color: #434de8;
@@ -99,27 +102,33 @@ ul {
   border: 1.5px solid #434de8;
 }
 
-.btn-primary:hover,
-.btn-primary:focus-visible,
-.btn-contact:hover,
-.btn-contact:focus-visible {
-  background-color: #ffffff;
-  color: #434de8;
-  border-color: #434de8;
-}
-
-/* Default Outlined Button (Book A Consultation) -> Hover par Solid Blue */
+/* Default Outlined Button (Book A Consultation) */
 .btn-outline {
   background-color: #ffffff;
   color: #434de8;
   border: 1.5px solid #434de8;
 }
 
-.btn-outline:hover,
-.btn-outline:focus-visible {
-  background-color: #434de8;
-  color: #ffffff;
-  border-color: #434de8;
+.btn:active {
+  transform: scale(0.98);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover,
+  .btn-primary:focus-visible,
+  .btn-contact:hover,
+  .btn-contact:focus-visible {
+    background-color: #ffffff;
+    color: #434de8;
+    border-color: #434de8;
+  }
+
+  .btn-outline:hover,
+  .btn-outline:focus-visible {
+    background-color: #434de8;
+    color: #ffffff;
+    border-color: #434de8;
+  }
 }
 
 /* Navbar (1440 x 100) */
@@ -480,6 +489,7 @@ ul {
     padding: 16px;
   }
 }
+
 .menu-toggle,
 .menu-label,
 .nav-toggle,
@@ -488,208 +498,11 @@ input[type="checkbox"][class*="menu"],
 label[for*="menu"] {
   display: none !important;
 }
-.mobile-drawer,
+
 .menu-checkbox,
 .menu-label,
 .menu-toggle {
   display: none;
-}
-
-@media (max-width: 900px) {
-  .navbar .nav-links,
-  .navbar .nav-actions {
-    display: none !important;
-  }
-
-  .mobile-drawer {
-    display: block;
-    position: relative;
-  }
-
-  .drawer-trigger {
-    list-style: none;
-    cursor: pointer;
-    padding: 7px 12px;
-    border: 1.5px solid #434de8;
-    border-radius: 6px;
-    color: #434de8;
-    background-color: #ffffff;
-    font-size: 18px;
-    line-height: 1;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .drawer-trigger::-webkit-details-marker {
-    display: none;
-  }
-
-  .drawer-backdrop {
-    display: none;
-  }
-
-  .drawer-panel {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 280px;
-    max-width: 82vw;
-    height: 100vh;
-    background-color: #ffffff;
-    border-left: 1px solid #e6e9f2;
-    box-shadow: -12px 0 32px rgba(20, 24, 36, 0.14);
-    padding: 22px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    transform: translateX(100%);
-    transition: transform 0.28s ease;
-    z-index: 1000;
-    overflow-y: auto;
-  }
-
-  .mobile-drawer[open] .drawer-backdrop {
-    display: block;
-    position: fixed;
-    inset: 0;
-    background-color: rgba(20, 24, 36, 0.35);
-    z-index: 999;
-  }
-
-  .mobile-drawer[open] .drawer-panel {
-    transform: translateX(0);
-  }
-
-  .drawer-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 14px;
-    border-bottom: 1px solid #f0f2f8;
-  }
-
-  .drawer-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: #141824;
-  }
-
-  .drawer-close {
-    list-style: none;
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-    border: 1px solid #e6e9f2;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    color: #141824;
-  }
-
-  .drawer-close::-webkit-details-marker {
-    display: none;
-  }
-
-  .drawer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .drawer-links a {
-    padding: 10px 12px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 500;
-    color: #141824;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-
-  .drawer-links a:hover,
-  .drawer-links a:active {
-    background-color: #f5f7ff;
-    color: #434de8;
-  }
-
-  .drawer-buttons {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-top: 14px;
-    border-top: 1px solid #f0f2f8;
-  }
-
-  .drawer-buttons .btn {
-    width: 100%;
-  }
-}
-
-.btn,
-.hero-buttons a,
-.hero-buttons button {
-  -webkit-tap-highlight-color: rgba(67, 77, 232, 0.15);
-  touch-action: manipulation;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
-}
-
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus-visible {
-  background-color: #ffffff;
-  color: #434de8;
-  border-color: #434de8;
-}
-
-.btn-outline:hover,
-.btn-outline:active,
-.btn-outline:focus-visible {
-  background-color: #434de8;
-  color: #ffffff;
-  border-color: #434de8;
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-
-@media (max-width: 900px) {
-  .drawer-panel {
-    height: 100vh;
-    height: 100dvh;
-    padding: 20px 20px 34px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .drawer-header {
-    position: relative;
-    z-index: 1002;
-  }
-
-  .drawer-close {
-    position: relative;
-    z-index: 1002;
-    pointer-events: auto;
-    -webkit-tap-highlight-color: rgba(67, 77, 232, 0.15);
-  }
-
-  .drawer-buttons {
-    margin-top: 24px;
-    flex-shrink: 0;
-    padding-bottom: 8px;
-    position: relative;
-    z-index: 1002;
-  }
-
-  .drawer-buttons .btn {
-    min-height: 44px;
-    pointer-events: auto;
-    position: relative;
-    z-index: 1002;
-  }
 }
 
 .mobile-drawer {
@@ -731,7 +544,6 @@ label[for*="menu"] {
     display: none;
   }
 
-  /* Jab drawer open ho toh trigger button top-right close button ban jaye */
   .mobile-drawer[open] .drawer-trigger {
     position: fixed;
     top: 18px;
@@ -750,6 +562,18 @@ label[for*="menu"] {
 
   .mobile-drawer[open] .drawer-trigger .icon-close {
     display: inline;
+  }
+
+  .drawer-backdrop {
+    display: none;
+  }
+
+  .mobile-drawer[open] .drawer-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(20, 24, 36, 0.35);
+    z-index: 999;
   }
 
   .drawer-panel {
@@ -771,12 +595,16 @@ label[for*="menu"] {
     display: flex;
     flex-direction: column;
     gap: 18px;
+    transform: translateX(0);
+    transition: transform 0.28s ease;
     z-index: 1000;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
 
   .drawer-header {
+    position: relative;
+    z-index: 1002;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -791,6 +619,28 @@ label[for*="menu"] {
     color: #141824;
   }
 
+  .drawer-close {
+    position: relative;
+    z-index: 1002;
+    list-style: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #e6e9f2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #141824;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: rgba(67, 77, 232, 0.15);
+  }
+
+  .drawer-close::-webkit-details-marker {
+    display: none;
+  }
+
   .drawer-links {
     display: flex;
     flex-direction: column;
@@ -803,6 +653,7 @@ label[for*="menu"] {
     font-size: 15px;
     font-weight: 500;
     color: #141824;
+    transition: background-color 0.2s ease, color 0.2s ease;
     -webkit-tap-highlight-color: rgba(67, 77, 232, 0.12);
     touch-action: manipulation;
   }
@@ -814,47 +665,24 @@ label[for*="menu"] {
   }
 
   .drawer-buttons {
+    position: relative;
+    z-index: 1002;
+    margin-top: auto;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding-top: 14px;
-    margin-top: 8px;
+    padding-bottom: 8px;
     border-top: 1px solid #f0f2f8;
   }
 
   .drawer-buttons .btn {
+    position: relative;
+    z-index: 1002;
     width: 100%;
     min-height: 44px;
+    pointer-events: auto;
     touch-action: manipulation;
-    -webkit-tap-highlight-color: rgba(67, 77, 232, 0.15);
-  }
-}
-/* Phone/Tablet par tap ke baad stuck state rokne ke liye */
-.btn,
-.hero-buttons a,
-.hero-buttons button {
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
-}
-
-/* Sirf tap karte waqt temporary press feedback */
-.btn:active {
-  transform: scale(0.98);
-}
-
-/* Hover sirf un devices par chale jahan real hover (mouse/laptop) hota hai */
-@media (hover: hover) and (pointer: fine) {
-  .btn-primary:hover,
-  .btn-contact:hover {
-    background-color: #ffffff;
-    color: #434de8;
-    border-color: #434de8;
-  }
-
-  .btn-outline:hover {
-    background-color: #434de8;
-    color: #ffffff;
-    border-color: #434de8;
   }
 }
