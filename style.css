@@ -113,6 +113,19 @@ ul {
   transform: scale(0.98);
 }
 
+.btn-primary:active,
+.btn-contact:active {
+  background-color: #ffffff;
+  color: #434de8;
+  border-color: #434de8;
+}
+
+.btn-outline:active {
+  background-color: #434de8;
+  color: #ffffff;
+  border-color: #434de8;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .btn-primary:hover,
   .btn-primary:focus-visible,
