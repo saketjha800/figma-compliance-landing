@@ -59,13 +59,16 @@
 
       <!-- Pure HTML/CSS Slide Bar for Phone & Tablet (<= 900px) -->
       <details class="mobile-drawer">
-        <summary class="drawer-trigger" aria-label="Open Menu">☰</summary>
-        <div class="drawer-backdrop"></div>
-        <aside class="drawer-panel">
+        <summary class="drawer-trigger" aria-label="Toggle Menu">
+          <span class="icon-open">☰</span>
+          <span class="icon-close">✕</span>
+        </summary>
+
+        <aside class="drawer-panel" aria-label="Mobile Menu">
           <div class="drawer-header">
             <span class="drawer-title">Menu</span>
-            <summary class="drawer-close" aria-label="Close Menu">✕</summary>
           </div>
+
           <nav class="drawer-links" aria-label="Mobile Navigation">
             <a href="#home">Home</a>
             <a href="#about">About Us</a>
@@ -74,6 +77,7 @@
             <a href="#faq">FAQ</a>
             <a href="#contact">Contact</a>
           </nav>
+
           <div class="drawer-buttons">
             <a href="#services" class="btn btn-primary">Get Started</a>
             <a href="#contact" class="btn btn-outline">Book A Consultation</a>
